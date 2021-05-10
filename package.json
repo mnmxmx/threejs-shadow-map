@@ -1,0 +1,43 @@
+{
+  "name": "mtbs-career",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --port 3000 --hot --host 0.0.0.0",
+    "build": "cross-env NODE_ENV=\"production\" webpack",
+    "sdf": "image-sdf human.png --spread 64 --color black > human-sdf.png"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^5.0.5",
+    "raw-loader": "^3.1.0",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.8.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.0.1",
+    "dat.gui": "^0.7.6",
+    "device": "^0.3.12",
+    "glslify-import": "^3.1.0",
+    "glslify-loader": "^2.0.0",
+    "image-sdf": "^1.0.4",
+    "mini-css-extract-plugin": "^1.3.3",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "stats-js": "^1.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^2.3.0",
+    "three": "^0.110.0",
+    "uglify-js": "^3.7.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack-bundle-analyzer": "^4.3.0"
+  }
+}
