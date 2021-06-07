@@ -1,8 +1,6 @@
 import * as THREE from "libs/three.module.js"
 import EventBus from "../utils/EventBus";
 
-import {top_scene_data, pages_data} from "../config";
-
 class Assets{
     constructor(){
         this.textures = {
