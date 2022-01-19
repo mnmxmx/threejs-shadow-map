@@ -1,4 +1,4 @@
-# SINGLE PASS DOF
+# THREEJS-SHADOW-MAP
 
 This source code and the demo are for a explanation in my blog post.
 
@@ -11,9 +11,7 @@ This source code and the demo are for a explanation in my blog post.
 ```
 
 ## Demo
-https://mnmxmx.github.io/single-pass-dof/dist/
+https://mnmxmx.github.io/threejs-shadow-map/dist/
 
 ## License
-This source code is not MIT License.  
-- You can see this source code and learn from it. 
-- You can't use this for your productions / your projects.
+MIT License.  
