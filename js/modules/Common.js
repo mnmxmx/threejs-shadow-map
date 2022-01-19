@@ -1,4 +1,4 @@
-import * as THREE from "libs/three.module.js"
+import * as THREE from "three"
 
 class Common {
     constructor() {
@@ -28,9 +28,8 @@ class Common {
         $wrapper.appendChild(this.$canvas);
 
 
-        console.log(this.renderer);
 
-        this.renderer.setClearColor(0xffffff);
+        this.renderer.setClearColor(0xE1E5EA);
 
         this.renderer.setPixelRatio(this.pixelRatio);
 
