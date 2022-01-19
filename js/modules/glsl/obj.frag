@@ -13,8 +13,6 @@ varying vec4 vShadowCoord;
 void main(){
     float depth_shadowCoord = (vShadowCoord.z / vShadowCoord.w * 0.5 + 0.5);
 
-    
-
     vec2 depthMapUv = vShadowCoord.xy / vShadowCoord.w * 0.5 + 0.5;
     float depth_depthMap = unpackRGBAToDepth(texture2D(uDepthMap, depthMapUv));
 

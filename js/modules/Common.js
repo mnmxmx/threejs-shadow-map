@@ -18,7 +18,6 @@ class Common {
     init({$wrapper}) {
         this.pixelRatio = Math.min(2, window.devicePixelRatio);
 
-
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true,
@@ -26,8 +25,6 @@ class Common {
 
         this.$canvas = this.renderer.domElement;
         $wrapper.appendChild(this.$canvas);
-
-
 
         this.renderer.setClearColor(0xE1E5EA);
 
@@ -39,7 +36,7 @@ class Common {
     }
 
     resize() {
-        const width = document.body.clientWidth;
+        const width = window.innerWidth;
         const height = window.innerHeight;
 
         this.dimensions_old.copy(this.dimensions);
