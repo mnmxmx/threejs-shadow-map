@@ -213,7 +213,8 @@ export default class Artwork{
         const material = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader: shadowFragmentShader,
-            side: THREE.BackSide
+            // side: THREE.BackSide
+
         });
         return material;
     }
@@ -271,8 +272,6 @@ export default class Artwork{
                 this.helpers[i].visible = true;
             }
         }
-
-        
 
         common.renderer.setRenderTarget(null);
         common.renderer.render(this.scene, this.camera);
