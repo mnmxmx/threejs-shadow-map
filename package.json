@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --port 3000 --hot --host 0.0.0.0",
+    "dev": "webpack-dev-server --port 3001 --hot --host 0.0.0.0",
     "build": "cross-env NODE_ENV=\"production\" webpack",
     "sdf": "image-sdf human.png --spread 64 --color black > human-sdf.png"
   },

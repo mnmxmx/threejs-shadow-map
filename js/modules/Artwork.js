@@ -45,8 +45,8 @@ export default class Artwork{
 
     createControls(){
         this.params = {
-            depthmapViewer: false,
-            visibleShadowCamera: false,
+            depthmapViewer: true,
+            visibleShadowCamera: true,
             output: "color shading"
         }
 
@@ -139,15 +139,14 @@ export default class Artwork{
 
         this.depthViewer = new ShadowMapViewer(this.light);
         this.depthViewer.size.set( 300, 300 );
-        this.depthViewer.enabled = false;
+        // this.depthViewer.enabled = false;
     }
 
     createGround(){
         const geometry = new THREE.BoxGeometry(250, 250, 250);
         // geometry.rotateX(-Math.PI / 2);
 
-        const material = this.createMaterial(0xE1E5EA, vertexShader, fragmentShader);
-        const shadowMaterial = this.createShadowMaterial(vertexShader);
+        const {material, shadowMaterial} = this.createMaterial(0xE1E5EA, vertexShader, fragmentShader);
 
         const mesh = new THREE.Mesh(geometry, material);
 
@@ -156,7 +155,7 @@ export default class Artwork{
         this.meshProps.push({
             mesh: mesh,
             material: material,
-            shadowMaterial: shadowMaterial
+            shadowMaterial: shadowMaterial,
         });
 
         this.group.add(mesh);
@@ -164,16 +163,16 @@ export default class Artwork{
 
     createObj(geometry, color){
 
-        const material = this.createMaterial(color, vertexShader, fragmentShader);
-        const shadowMaterial = this.createShadowMaterial(vertexShader);
+        const {material, shadowMaterial} = this.createMaterial(color, vertexShader, fragmentShader);
+
 
         const mesh = new THREE.Mesh(geometry, material);
         this.group.add(mesh);
 
         this.meshProps.push({
-            mesh: mesh,
-            material: material,
-            shadowMaterial: shadowMaterial
+            mesh,
+            material,
+            shadowMaterial,
         });
 
         return mesh;
@@ -181,6 +180,9 @@ export default class Artwork{
 
     createMaterial(color, vertexShader, fragmentShader){
         const uniforms = {
+            uTime: {
+                value: 0
+            },
             uColor: {
                 value: new THREE.Color(color)
             },
@@ -206,17 +208,14 @@ export default class Artwork{
             uniforms,
         });
 
-        return material
-    }
-
-    createShadowMaterial(vertexShader){
-        const material = new THREE.ShaderMaterial({
+        const shadowMaterial = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader: shadowFragmentShader,
+            uniforms,
             // side: THREE.BackSide
-
         });
-        return material;
+
+        return {material, shadowMaterial}
     }
 
     resize(){

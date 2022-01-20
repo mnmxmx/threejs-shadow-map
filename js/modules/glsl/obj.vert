@@ -2,6 +2,7 @@ varying vec3 vNormal;
 
 uniform mat4 uShadowCameraP;
 uniform mat4 uShadowCameraV;
+
 varying vec4 vShadowCoord;
 
 void main(){

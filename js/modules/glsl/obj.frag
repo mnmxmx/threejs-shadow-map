@@ -39,7 +39,7 @@ void main(){
     float bias = 0.005 * tan(acos(cosTheta)); // cosTheta is dot( n,l ), clamped between 0 and 1
     bias = clamp(bias, 0.0, 0.01);
 
-    float shadowFactor = min(1.0, step(depth_shadowCoord - bias, depth_depthMap));
+    float shadowFactor = step(depth_shadowCoord - bias, depth_depthMap);
     shadowFactor = frustumTest(shadowCoord, shadowFactor);
     
     float shading = shadowFactor * difLight;
