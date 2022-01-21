@@ -47,6 +47,8 @@ class Common {
             height * this.pixelRatio
         );
 
+        this.isMobile = width <= 768;
+
         this.aspect = width / height;
 
         this.renderer.setSize(this.dimensions.x, this.dimensions.y);

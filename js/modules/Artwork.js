@@ -45,16 +45,16 @@ export default class Artwork{
 
     createControls(){
         this.params = {
-            depthmapViewer: true,
+            depthmapViewer: common.isMobile ? false : true,
             visibleShadowCamera: true,
             output: "color shading"
         }
 
         this.gui = new GUI();
-        this.gui.add(this.params, "visibleShadowCamera");
         this.gui.add(this.params, "depthmapViewer").onChange((value) => {
             this.depthViewer.enabled = value;
         });
+        this.gui.add(this.params, "visibleShadowCamera");
         this.gui.add(this.params, "output", [
             "color shading",
             "shadow * lighting",
@@ -139,7 +139,7 @@ export default class Artwork{
 
         this.depthViewer = new ShadowMapViewer(this.light);
         this.depthViewer.size.set( 300, 300 );
-        // this.depthViewer.enabled = false;
+        if(common.isMobile) this.depthViewer.enabled = false;
     }
 
     createGround(){
